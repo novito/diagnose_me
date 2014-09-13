@@ -66,4 +66,16 @@ feature 'Signing up' do
 
     expect(page).to have_text "Password confirmation doesn't match"
   end
+
+  scenario "can't sign up if password is blank" do
+    fill_in 'First name', with: user.first_name
+    fill_in 'Last name', with: user.last_name
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: '      '
+    fill_in 'Password confirmation', with: '     '
+
+    click_button 'Sign up'
+
+    expect(page).to have_text "Password can't be blank"
+  end
 end
