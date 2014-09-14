@@ -16,7 +16,7 @@ feature 'Signing up' do
 
     click_button 'Sign up'
 
-    expect(page).to have_text 'Welcome! You have signed up successfully.'
+    expect(page).to have_text 'File a new case'
   end
 
   scenario "can't sign up without a first name" do

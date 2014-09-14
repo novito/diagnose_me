@@ -1,4 +1,8 @@
 class PatientCasesController < ApplicationController
+  def index
+    @patient_cases = current_user.patient_cases
+  end
+
   def new
     @patient_case = current_user.patient_cases.new
   end
