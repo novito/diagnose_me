@@ -1,1 +1,3 @@
 h1 Your cases
+- @patient_cases.each do |pc|
+  = link_to "Case #{pc.id}", patient_case_path(pc)

@@ -3,4 +3,8 @@ Rails.application.routes.draw do
 
   devise_for :users, :controllers => { :registrations => "registrations" }
   resources :patient_cases, :path => 'cases'
+
+  namespace :practitioner do
+    resources :patient_cases, :path => 'cases'
+  end
 end

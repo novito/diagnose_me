@@ -1,4 +1,6 @@
 class PatientCasesController < ApplicationController
+  before_action :authenticate_user!
+
   def index
     @patient_cases = current_user.patient_cases
   end
