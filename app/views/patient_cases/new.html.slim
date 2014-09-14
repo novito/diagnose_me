@@ -1,0 +1,11 @@
+div
+  p File a new case
+  div
+    = form_for(@patient_case) do |f|
+      div
+        = f.label :comments
+        = f.text_field :comments
+        = f.label :tongue, 'Tongue picture'
+        = f.file_field :tongue
+      div
+        = f.submit 'Submit case'
