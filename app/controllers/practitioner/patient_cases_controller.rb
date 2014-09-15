@@ -2,4 +2,8 @@ class Practitioner::PatientCasesController < Practitioner::PractitionerControlle
   def index
     @patient_cases = PatientCase.all
   end
+
+  def show
+    @patient_case = PatientCase.find(params[:id])
+  end
 end

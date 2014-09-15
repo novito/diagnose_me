@@ -19,6 +19,11 @@ feature 'Managing patient cases' do
   end
 
   scenario 'a signed in user can go to one of the patient cases' do
+    login_as(practitioner, scope: :user)
+    visit practitioner_patient_cases_path
+
+    click_link "Case #{@patient_case.id}"
+    expect(current_path).to eq(practitioner_patient_case_path(@patient_case))
   end
 
   scenario "a non signed in user is asked to sign in first" do
