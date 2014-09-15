@@ -1,1 +1,14 @@
 h1 Manage your patient cases
+table
+  tr
+    th Case number
+    th Patient name
+
+  tbody
+- @patient_cases.each do |pc|
+  tr
+    td = link_to "Case #{pc.id}", practitioner_patient_case_path(pc)
+    td = pc.user.complete_name
+
+
+

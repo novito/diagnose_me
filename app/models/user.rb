@@ -6,4 +6,9 @@ class User < ActiveRecord::Base
   validates :last_name, presence: true
 
   has_many :patient_cases
+
+  # Returns the concatenation of first name and last name
+  def complete_name
+    "#{first_name} #{last_name}"
+  end
 end
