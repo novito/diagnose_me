@@ -1,0 +1,14 @@
+- unless @diagnosis.nil?
+  h1 
+    | Add a new diagnose
+  div
+    div
+      = form_for([:practitioner, @patient_case, @diagnosis]) do |f|
+        div
+          = f.label :comments
+          = f.text_field :comments
+        div
+          = f.submit 'Submit diagnosis'
+- else
+    | Patient case #{params[:patient_case_id]} was not found
+

@@ -18,7 +18,7 @@ feature 'Managing patient cases' do
     expect(page).to have_content @patient_case.user.complete_name
   end
 
-  scenario 'a signed in user can go to one of the patient cases' do
+  scenario 'a signed in practitioner can go to one of the patient cases' do
     login_as(practitioner, scope: :user)
     visit practitioner_patient_cases_path
 
@@ -26,7 +26,7 @@ feature 'Managing patient cases' do
     expect(current_path).to eq(practitioner_patient_case_path(@patient_case))
   end
 
-  scenario "a non signed in user is asked to sign in first" do
+  scenario "a non signed in practitioner is asked to sign in first" do
     visit practitioner_patient_cases_path
 
     expect(page).to have_content 'You need to sign in'

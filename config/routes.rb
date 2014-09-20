@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :patient_cases, :path => 'cases'
 
   namespace :practitioner do
-    resources :patient_cases, :path => 'cases'
+    resources :patient_cases, :path => 'cases' do
+      resources :diagnoses
+    end
   end
 end

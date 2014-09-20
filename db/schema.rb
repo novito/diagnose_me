@@ -11,7 +11,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140914234352) do
+ActiveRecord::Schema.define(version: 20140920041119) do
+
+  create_table "diagnoses", force: true do |t|
+    t.integer  "practitioner_id", null: false
+    t.integer  "patient_case_id", null: false
+    t.text     "comments"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "patient_cases", force: true do |t|
     t.text     "comments"

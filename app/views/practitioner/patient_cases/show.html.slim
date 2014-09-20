@@ -1,7 +1,24 @@
 h1
-Case = @patient_case.id
+  | Case #{@patient_case.id}
 
 div
-  p 
-    b Patient Name
+  div 
+    b 
+      | Patient Name: 
     = @patient_case.user.complete_name
+  div 
+    b 
+      | Tongue: 
+    = image_tag(@patient_case.tongue)
+
+div
+  - if @patient_case.diagnoses.any?
+    h2
+      | Diagnoses
+    - @patient_case.diagnoses.each do |diagnosis|
+      div 
+        = diagnosis.comments
+  - else
+    | There are no diagnoses for this case
+  = link_to 'Create new diagnosis', new_practitioner_patient_case_diagnosis_path(@patient_case)
+
