@@ -18,7 +18,7 @@ class PatientCasesController < ApplicationController
   end
 
   def show
-    @patient_case = current_user.patient_cases.find(params[:id])
+    @patient_case = current_user.patient_cases.includes(:diagnoses).find(params[:id])
   end
 
   private

@@ -1,24 +1,31 @@
-h1
-  | Case #{@patient_case.id}
-
-div
-  div 
-    b 
-      | Patient Name: 
-    = @patient_case.user.complete_name
-  div 
-    b 
-      | Tongue: 
-    = image_tag(@patient_case.tongue)
-
-div
-  - if @patient_case.diagnoses.any?
-    h2
-      | Diagnoses
-    - @patient_case.diagnoses.each do |diagnosis|
-      div 
-        = diagnosis.comments
-  - else
-    | There are no diagnoses for this case
-  = link_to 'Create new diagnosis', new_practitioner_patient_case_diagnosis_path(@patient_case)
-
+.container#practitioner_patient_case_show
+  .content
+    .page-header
+      h1
+        | Patient case #{@patient_case.id}
+    .main-content
+      .row
+        .col-md-4
+          .row.spacer40
+              h2
+                | Case details
+              b 
+                | Patient Name: 
+              = @patient_case.user.complete_name
+          .row.spacer40
+              = image_tag(@patient_case.tongue.url(:small))
+        .col-md-8
+          .row.spacer40
+            - if @patient_case.diagnoses.any?
+              h2
+                | Diagnoses
+              - @patient_case.diagnoses.each do |diagnosis|
+                div 
+                  b 
+                    | Comments
+                    br
+                  = diagnosis.comments
+                div.spacer20
+                  = link_to 'Edit diagnosis', edit_practitioner_patient_case_diagnosis_path(@patient_case, diagnosis), class: 'btn btn-info'
+            - else
+              = link_to 'Create new diagnosis', new_practitioner_patient_case_diagnosis_path(@patient_case), class: 'btn btn-primary'

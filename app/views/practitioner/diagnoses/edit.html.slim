@@ -1,8 +1,8 @@
-.container#practitioner_diagnosis_new
+.container#practitioner_diagnosis_edit
   .content
     .page-header
       h1 
-        | Add a new diagnosis
+        | Edit a diagnosis
     - unless @diagnosis.nil?
       .row.spacer40
         .col-md-10
@@ -13,7 +13,7 @@
               = f.text_area :comments, cols: 100, rows: 10
             div.form-group
               div.col-md-offset-2.col-md-10
-                = f.submit 'Submit diagnosis', class: 'btn btn-primary'
+                = f.submit 'Update diagnosis', class: 'btn btn-primary'
         .col-md-2
           = image_tag @patient_case.tongue.url(:small)
     - else

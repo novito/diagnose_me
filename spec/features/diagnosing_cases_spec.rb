@@ -23,4 +23,13 @@ feature 'Diagnosing cases' do
     click_button 'Submit diagnosis'
     expect(page).to have_content 'Diagnose has been added correctly'
   end
+
+  scenario 'a practitioner can edit an existing diagnose for a case' do
+    diagnosis = create(:diagnosis, practitioner: practitioner, comments: 'This tongue is red!', patient_case: patient_case)
+    visit edit_practitioner_patient_case_diagnosis_path(patient_case, diagnosis)
+
+    fill_in 'Comments', with: 'This tongue is blue!'
+    click_button 'Update diagnosis'
+    expect(page).to have_content 'This tongue is blue'
+  end
 end

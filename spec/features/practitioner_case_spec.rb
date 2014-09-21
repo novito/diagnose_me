@@ -12,13 +12,12 @@ feature 'Managing a patient case' do
   end
 
   scenario 'can see the details of the case' do
-    expect(page).to have_text("Case #{patient_case.id}")
+    expect(page).to have_text("Patient case #{patient_case.id}")
     expect(page).to have_text("Patient Name: #{patient_case.user.complete_name}")
     expect(page).to have_css("img[src*='tongue.png']")
   end
 
-  scenario 'can see a message that there are not diagnoses' do
-    expect(page).to have_text("There are no diagnoses for this case")
+  scenario 'can see a button to create new diagnosis if there are no diagnosis yet' do
     expect(page).to have_link("Create new diagnosis")
   end
 
@@ -28,7 +27,12 @@ feature 'Managing a patient case' do
 
     expect(page).to have_text('Diagnoses')
     expect(page).to have_text('This is a good tongue!')
-    expect(page).to have_link("Create new diagnosis")
   end
 
+  scenario 'can click on edit an existing diagnose created by current user' do
+    create(:diagnosis, comments: 'This is a good tongue!', patient_case: patient_case)
+    visit practitioner_patient_case_path(patient_case)
+
+    expect(page).to have_text('Edit diagnosis')
+  end
 end
