@@ -4,7 +4,7 @@ feature 'Welcome pages' do
   scenario 'when a new user arrives to the landing page' do
     visit root_path
 
-    expect(page).to have_text('Welcome to Diagnose My Tongue')
+    expect(page).to have_text('How it works')
     expect(page).to have_link('Sign up')
   end
 
@@ -14,6 +14,7 @@ feature 'Welcome pages' do
 
     visit root_path
 
-    expect(page).not_to have_link('Sign up')
+    expect(page).not_to have_link('Sign in')
+    expect(page).to have_link('Sign out')
   end
 end

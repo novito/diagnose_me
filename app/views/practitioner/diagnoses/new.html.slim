@@ -9,7 +9,6 @@
           = form_for([:practitioner, @patient_case, @diagnosis], class: 'horizontal-form') do |f|
             div.form-group
               = f.label :comments, class: "col-sm-2 control-label"
-              div.col-md-10
               = f.text_area :comments, cols: 100, rows: 10
             div.form-group
               div.col-md-offset-2.col-md-10

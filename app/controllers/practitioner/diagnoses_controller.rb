@@ -9,7 +9,7 @@ class Practitioner::DiagnosesController < Practitioner::PractitionerController
     @diagnosis = @patient_case.diagnoses.new(diagnosis_params)
 
     if @diagnosis.save
-      redirect_to practitioner_patient_case_path(@patient_case), notice: 'Diagnose has been added correctly'
+      redirect_to practitioner_patient_case_path(@patient_case), notice: 'Diagnosis has been added correctly'
     else
       render :new
     end
@@ -25,7 +25,7 @@ class Practitioner::DiagnosesController < Practitioner::PractitionerController
     @diagnosis = Diagnosis.find(params[:id])
 
     if @diagnosis.update(diagnosis_params)
-      redirect_to practitioner_patient_case_path(@patient_case)
+      redirect_to practitioner_patient_case_path(@patient_case), notice: 'Diagnosis has been updated correctly'
     else
       render :edit
     end

@@ -21,7 +21,7 @@ feature 'Diagnosing cases' do
     fill_in 'Comments', with: 'It is a pretty red tongue'
 
     click_button 'Submit diagnosis'
-    expect(page).to have_content 'Diagnose has been added correctly'
+    expect(page).to have_content 'Diagnosis has been added correctly'
   end
 
   scenario 'a practitioner can edit an existing diagnose for a case' do
