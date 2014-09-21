@@ -1,32 +1,40 @@
-h2
-  | Sign up
-= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = devise_error_messages!
-  div 
-    = f.label :first_name
-    br
-    = f.text_field :first_name
-  div
-    = f.label :last_name
-    br
-    = f.text_field :last_name
-  div
-    = f.label :email
-    br
-    = f.email_field :email, autofocus: true
-  div
-    = f.label :password
-    - if @validatable
-      i
-        | (
-        = @minimum_password_length
-        |  characters minimum)
-    br
-    = f.password_field :password, autocomplete: "off"
-  div
-    = f.label :password_confirmation
-    br
-    = f.password_field :password_confirmation, autocomplete: "off"
-  div
-    = f.submit "Sign up"
-= render "devise/shared/links"
+.container#registrations_new
+  .content
+    .page-header
+      h1
+        | Sign up
+    .main-content
+      .row.spacer40
+        .col-md-6
+          = form_for(resource, as: resource_name, url: registration_path(resource_name), html: {class: 'form-horizontal'}) do |f|
+            = devise_error_messages!
+            .form-group
+              = f.label :first_name, class: 'col-sm-4 control-label'
+              .col-sm-8
+                = f.text_field :first_name, autofocus: true, class: 'form-control'
+            .form-group
+              = f.label :last_name, class: 'col-sm-4 control-label'
+              .col-sm-8
+                = f.text_field :last_name, class: 'form-control'
+            .form-group
+              = f.label :email, class: 'col-sm-4 control-label'
+              .col-sm-8
+                = f.email_field :email, class: 'form-control'
+            .form-group
+              = f.label :password, class: 'col-sm-4 control-label'
+                | Password
+                br
+                - if @validatable
+                  i.annotation
+                    | (
+                    = @minimum_password_length
+                    |  characters minimum)
+              .col-sm-8
+                = f.password_field :password, autocomplete: 'off', class: 'form-control'
+            .form-group
+              = f.label :password_confirmation, class: 'col-sm-4 control-label'
+              .col-sm-8
+                = f.password_field :password_confirmation, autocomplete: 'off', class: 'form-control'
+            .form-group
+              .col-sm-offset-4.col-sm-10
+                = f.submit "Sign up", class: 'btn btn-primary'
