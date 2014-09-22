@@ -9,4 +9,9 @@ Rails.application.routes.draw do
       resources :diagnoses
     end
   end
+
+  # Static Pages
+  get 'terms_and_conditions', to: 'pages#terms_and_conditions'
+  get 'about', to: 'pages#about'
+  get 'contact', to: 'pages#contact'
 end

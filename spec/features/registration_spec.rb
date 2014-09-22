@@ -13,7 +13,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password, match: :prefer_exact
-    find("input[type='checkbox']").set(true)
+    find(:css,"#user_terms_and_conditions").set(true)
 
     click_button 'Sign up'
 
@@ -26,7 +26,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password, match: :prefer_exact
-    find("input[type='checkbox']").set(true)
+    find(:css,"#user_terms_and_conditions").set(true)
 
     click_button 'Sign up'
 
@@ -39,7 +39,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password, match: :prefer_exact
-    find("input[type='checkbox']").set(true)
+    find(:css,"#user_terms_and_conditions").set(true)
 
     click_button 'Sign up'
 
@@ -52,7 +52,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password[0], match: :prefer_exact
     fill_in 'Password confirmation', with: user.password[0], match: :prefer_exact
-    find("input[type='checkbox']").set(true)
+    find(:css,"#user_terms_and_conditions").set(true)
 
     click_button 'Sign up'
 
@@ -65,7 +65,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password.reverse, match: :prefer_exact
-    find("input[type='checkbox']").set(true)
+    find(:css,"#user_terms_and_conditions").set(true)
 
     click_button 'Sign up'
 
@@ -78,7 +78,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: '      ', match: :prefer_exact
     fill_in 'Password confirmation', with: '     ', match: :prefer_exact
-    find("input[type='checkbox']").set(true)
+    find(:css,"#user_terms_and_conditions").set(true)
 
     click_button 'Sign up'
 
@@ -94,5 +94,9 @@ feature 'Signing up' do
 
     click_button 'Sign up'
     expect(page).to have_text "Terms and conditions must be accepted"
+  end
+
+  scenario "user can click on the terms and conditions link" do
+    expect(page).to have_link('terms and conditions')
   end
 end
