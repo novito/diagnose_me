@@ -16,5 +16,6 @@ feature 'Welcome pages' do
 
     expect(page).not_to have_link('Sign in')
     expect(page).to have_link('Sign out')
+    expect(page).to have_link('My cases')
   end
 end

@@ -1,3 +1,34 @@
-h1 Your cases
-- @patient_cases.each do |pc|
-  = link_to "Case #{pc.id}", patient_case_path(pc)
+.container#patient_cases_index
+  .content
+    .page-header
+      h1
+        | Your cases
+    .main-content
+      .row.spacer40
+        table.table.table-striped
+          thead
+            tr
+              th
+                | Case ID
+              th
+                | Picture
+              th
+                | Comments
+              th
+                | Diagnosis
+              th
+                | Actions
+          tbody
+            - @patient_cases.each do |pc|
+              tr
+                td
+                  = pc.id
+                td
+                  = image_tag pc.tongue(:small)
+                td
+                  = pc.comments
+                td
+                  = pc.diagnoses.any? ? pc.diagnoses.first.comments : 'No diagnosis yet'
+                td
+                  = link_to 'Learn more about this diagnosis', '#', class: 'btn btn-success'
+                  
