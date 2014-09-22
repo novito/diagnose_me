@@ -11,8 +11,8 @@ feature 'Signing up' do
     fill_in 'First name', with: user.first_name
     fill_in 'Last name', with: user.last_name
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password
+    fill_in 'Password', with: user.password, match: :prefer_exact
+    fill_in 'Password confirmation', with: user.password, match: :prefer_exact
 
     click_button 'Sign up'
 
@@ -23,8 +23,8 @@ feature 'Signing up' do
     fill_in 'First name', with: '   '
     fill_in 'Last name', with: user.last_name
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password
+    fill_in 'Password', with: user.password, match: :prefer_exact
+    fill_in 'Password confirmation', with: user.password, match: :prefer_exact
 
     click_button 'Sign up'
 
@@ -35,8 +35,8 @@ feature 'Signing up' do
     fill_in 'First name', with: user.first_name
     fill_in 'Last name', with: '   '
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password
+    fill_in 'Password', with: user.password, match: :prefer_exact
+    fill_in 'Password confirmation', with: user.password, match: :prefer_exact
 
     click_button 'Sign up'
 
@@ -47,8 +47,8 @@ feature 'Signing up' do
     fill_in 'First name', with: user.first_name
     fill_in 'Last name', with: user.last_name
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password[0]
-    fill_in 'Password confirmation', with: user.password[0]
+    fill_in 'Password', with: user.password[0], match: :prefer_exact
+    fill_in 'Password confirmation', with: user.password[0], match: :prefer_exact
 
     click_button 'Sign up'
 
@@ -59,8 +59,8 @@ feature 'Signing up' do
     fill_in 'First name', with: user.first_name
     fill_in 'Last name', with: user.last_name
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: user.password
-    fill_in 'Password confirmation', with: user.password.reverse
+    fill_in 'Password', with: user.password, match: :prefer_exact
+    fill_in 'Password confirmation', with: user.password.reverse, match: :prefer_exact
 
     click_button 'Sign up'
 
@@ -71,8 +71,8 @@ feature 'Signing up' do
     fill_in 'First name', with: user.first_name
     fill_in 'Last name', with: user.last_name
     fill_in 'Email', with: user.email
-    fill_in 'Password', with: '      '
-    fill_in 'Password confirmation', with: '     '
+    fill_in 'Password', with: '      ', match: :prefer_exact
+    fill_in 'Password confirmation', with: '     ', match: :prefer_exact
 
     click_button 'Sign up'
 

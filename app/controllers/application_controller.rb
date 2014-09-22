@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
   private
 
   def decide_after_sign_in(user)
-    new_patient_case_path
+    return practitioner_patient_cases_path if user.is_practitioner
     user.patient_cases.empty? ? new_patient_case_path : patient_cases_path
   end
 end
