@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140920041119) do
+ActiveRecord::Schema.define(version: 20140922015759) do
 
   create_table "diagnoses", force: true do |t|
     t.integer  "practitioner_id", null: false
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(version: 20140920041119) do
     t.string   "first_name"
     t.string   "last_name"
     t.boolean  "is_practitioner",        default: false
+    t.boolean  "terms_and_conditions",   default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

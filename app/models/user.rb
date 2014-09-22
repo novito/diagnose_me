@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
 
   validates :first_name, presence: true
   validates :last_name, presence: true
+  validates :terms_and_conditions, acceptance: true
 
   has_many :patient_cases
 

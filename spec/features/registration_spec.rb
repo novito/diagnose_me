@@ -13,6 +13,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password, match: :prefer_exact
+    find("input[type='checkbox']").set(true)
 
     click_button 'Sign up'
 
@@ -25,6 +26,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password, match: :prefer_exact
+    find("input[type='checkbox']").set(true)
 
     click_button 'Sign up'
 
@@ -37,6 +39,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password, match: :prefer_exact
+    find("input[type='checkbox']").set(true)
 
     click_button 'Sign up'
 
@@ -49,6 +52,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password[0], match: :prefer_exact
     fill_in 'Password confirmation', with: user.password[0], match: :prefer_exact
+    find("input[type='checkbox']").set(true)
 
     click_button 'Sign up'
 
@@ -61,6 +65,7 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: user.password, match: :prefer_exact
     fill_in 'Password confirmation', with: user.password.reverse, match: :prefer_exact
+    find("input[type='checkbox']").set(true)
 
     click_button 'Sign up'
 
@@ -73,9 +78,21 @@ feature 'Signing up' do
     fill_in 'Email', with: user.email
     fill_in 'Password', with: '      ', match: :prefer_exact
     fill_in 'Password confirmation', with: '     ', match: :prefer_exact
+    find("input[type='checkbox']").set(true)
 
     click_button 'Sign up'
 
     expect(page).to have_text "Password can't be blank"
+  end
+
+  scenario "can't sign up if terms & conditions are not checked" do
+    fill_in 'First name', with: user.first_name
+    fill_in 'Last name', with: user.last_name
+    fill_in 'Email', with: user.email
+    fill_in 'Password', with: user.password, match: :prefer_exact
+    fill_in 'Password confirmation', with: user.password, match: :prefer_exact
+
+    click_button 'Sign up'
+    expect(page).to have_text "Terms and conditions must be accepted"
   end
 end
